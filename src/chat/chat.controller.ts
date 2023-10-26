@@ -103,6 +103,9 @@ export class ChatController {
   })
   @ApiOperation({ summary: 'Supprime un message' })
   async deleteMessage(@Body() message: DeleteMessageDTO) {
-    await this.chatService.deleteMessage(message.messageId, message.userId);
+    return await this.chatService.deleteMessage(
+      message.messageId,
+      message.userId,
+    );
   }
 }

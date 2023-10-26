@@ -76,7 +76,8 @@ export class ChatService {
     if (message.user.id !== userId && message.room.owner.id !== userId) {
       throw new ForbiddenException();
     }
-    await this.messageRepository.delete(message);
+
+    await this.messageRepository.delete(message.id);
     this.chatGateway.sendDeleteMessageToRoom(message);
   }
 }
