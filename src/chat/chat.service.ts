@@ -48,7 +48,7 @@ export class ChatService {
       where: {
         id: messageId,
       },
-      relations: ['user'],
+      relations: ['user', 'room'],
     });
     if (!message) {
       throw new NotFoundException();
